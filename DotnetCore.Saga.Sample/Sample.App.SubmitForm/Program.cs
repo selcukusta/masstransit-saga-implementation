@@ -12,7 +12,7 @@ namespace Sample.App.SubmitForm
             if (string.IsNullOrWhiteSpace(requestedReportId))
             {
                 Console.WriteLine("Please enter any report id!");
-                Console.ReadLine();
+                requestedReportId = Console.ReadLine();
             }
             var bus = BusConfigurator.ConfigureBus();
             var sendToUri = new Uri($"{RabbitMqConstants.RabbitMqUri}{RabbitMqConstants.SagaQueue}");
