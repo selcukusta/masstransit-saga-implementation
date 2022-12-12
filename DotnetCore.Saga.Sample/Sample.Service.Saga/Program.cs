@@ -4,7 +4,6 @@ using Sample.Contracts;
 using Sample.ReportTracking;
 using System.Threading.Tasks;
 using System.Threading;
-using MassTransit.Saga;
 
 namespace Sample.Service.Saga
 {
@@ -14,9 +13,9 @@ namespace Sample.Service.Saga
         {
             var sagaStateMachine = new ReportStateMachine();
             var repository = new InMemorySagaRepository<ReportSagaState>();
-            var bus = BusConfigurator.ConfigureBus((cfg, host) =>
+            var bus = BusConfigurator.ConfigureBus((cfg) =>
             {
-                cfg.ReceiveEndpoint(host, RabbitMqConstants.SagaQueue, e =>
+                cfg.ReceiveEndpoint(RabbitMqConstants.SagaQueue, e =>
                 {
                     e.StateMachineSaga(sagaStateMachine, repository);
                 });

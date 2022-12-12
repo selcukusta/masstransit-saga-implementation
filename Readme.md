@@ -13,3 +13,5 @@
     - If request is valid, create `IReportCreatedEvent` and produce it!
     
     - If request is invalid, create `IReportFailedEvent` and produce it!
+
+![Debug and consoles](DebugAndConsoles.png)

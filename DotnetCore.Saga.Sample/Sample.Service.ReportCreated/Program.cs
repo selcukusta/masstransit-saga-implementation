@@ -10,9 +10,9 @@ namespace Sample.Service.ReportCreated
     {
         public static async Task Main(string[] args)
         {
-            var bus = BusConfigurator.ConfigureBus((cfg, host) =>
+            var bus = BusConfigurator.ConfigureBus((cfg) =>
             {
-                cfg.ReceiveEndpoint(host, RabbitMqConstants.ReportRequestServiceQueue, e =>
+                cfg.ReceiveEndpoint(RabbitMqConstants.ReportRequestServiceQueue, e =>
                 {
                     e.Consumer<ReportCreatedConsumer>();
                 });

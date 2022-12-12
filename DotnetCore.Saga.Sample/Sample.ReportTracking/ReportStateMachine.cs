@@ -1,5 +1,5 @@
 ﻿using System;
-using Automatonymous;
+using MassTransit;
 using Sample.Contracts;
 
 namespace Sample.ReportTracking
