@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-using Automatonymous;
+using MassTransit;
 
 namespace Sample.ReportTracking
 {
